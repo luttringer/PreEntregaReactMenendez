@@ -1,0 +1,21 @@
+.ShopContenedor
+{
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 75vw;
+    height: 40vw;
+    margin-left: 1vw;
+    display: grid;
+    grid-template-columns: repeat(5,10vw);
+    grid-template-rows: repeat(2,20vw);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 15px;
+    padding-top: 50px;
+}
+
+.ShopContenedor>div 
+{
+    width: 10vw;
+    height: 20vw;
+}

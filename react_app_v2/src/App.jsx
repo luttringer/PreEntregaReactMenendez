@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <MenuNavegacion/>
-      <ItemListContainer greeting="Hoy la historia tiene que ser de unidad"/>
+      {/*<ItemListContainer greeting="Hoy la historia tiene que ser de unidad"/>*/}
       
       <section class="shopContenedorGlobal">
         <ShopCategorias/>

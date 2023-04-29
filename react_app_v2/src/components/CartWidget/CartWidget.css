@@ -1,0 +1,46 @@
+.productoItem 
+{
+    width: 10vw;
+    height: 20vw;
+    background-color: #f5f5f54d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.productoItem>img 
+{
+    width: 7vw;
+    height: 7vw;
+    object-fit: cover;
+}
+
+.productoItem>h4, .productoItem>p, .productoItem>button
+{
+    font-family: consolas;
+    font-size: 1rem;
+    color: midnightblue;
+}
+
+.productoItem>p:nth-of-type(1)
+{
+    font-size: 0.7rem;
+}
+
+.productoItem>p:nth-of-type(2)
+{
+    font-size: 1.5rem;
+}
+
+.productoItem>button
+{
+    width: 150px;
+    height: 30px;
+    border: none;
+    background-color: #333;
+    color: #f2f2f2;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
