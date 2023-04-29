@@ -1,0 +1,45 @@
+.shopCatC
+{
+    border-right: 1px solid #333;
+    height: auto;
+    width: 20vw;
+    height: 50vh;
+    padding-left: 30px;
+    margin: 5vh 0 5vh 0.5vw;
+}
+
+.shopCatC>h3, .shopCatC>ul>li
+{
+    margin: 0;
+    padding: 0;
+    font-family: consolas;
+    font-size: 1.2rem;
+    color: midnightblue;
+}
+
+.shopCatC>ul 
+{
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.shopCatC>ul>li 
+{
+    list-style:none;
+    font-size: 0.8rem;
+    margin-left: 30px;
+    color: #333;
+}
+
+.shopCatC>ul>li:hover 
+{
+    color: goldenrod;
+    cursor: pointer;
+    transition: color ease-in 0.5s;
+}
+
+.shopCatC>ul>li, .shopCatC>h3
+{
+    user-select: none;
+}

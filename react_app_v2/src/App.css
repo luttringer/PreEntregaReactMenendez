@@ -1,0 +1,8 @@
+.shopContenedorGlobal
+{
+    width: 100%;
+    height: 60vh;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    margin: 0 auto;
+}
