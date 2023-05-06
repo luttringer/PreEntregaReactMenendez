@@ -1,8 +1,9 @@
 import './App.css';
 import MenuNavegacion from './components/MenuNavegacion/MenuNavegacion';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+//import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ShopCategorias from './components/ShopCategorias/ShopCategorias';
 import ShopCont from './components/ShopCont/ShopCont';
+import Fetch from './components/Fetch/Fetch';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <ShopCategorias/>
         <ShopCont/>
       </section>
+
+      <Fetch></Fetch>
     </>
   );
 }
