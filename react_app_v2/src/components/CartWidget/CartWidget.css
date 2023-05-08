@@ -49,12 +49,11 @@
     width: 150px;
     height: 30px;
     border: none;
-    background-color: #70002a;;
+    background-color: #70002a;
     color: #f2e6e9;
     font-size: 0.7rem;
     font-weight: 900;
     box-sizing:border-box;
-    margin-top: 50px;
 }
 
 .productoItem>button:hover 
@@ -62,6 +61,38 @@
     transition: all ease-in 0.5s;
     background-color:#1c000a;
     cursor: pointer;
+}
+
+.productoItem>div 
+{
+    width: 150px;
+    height: 30px;
+    background-color: #70002a;
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 5px;
+}
+
+.productoItem>div button
+{
+    width: 30px;
+    height: 30px;
+    background-color: #70002a;
+    color: #f2e6e9;
+    border: none;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.productoItem>div input
+{
+    width: 90px;
+    height: 28px;
+    border: none;
+    margin: none;
+    text-align: center;
+    color: #70002a;
+    font-weight: 800;
 }
 
 @media only screen and (max-width: 1500px) and (min-width:1100px)

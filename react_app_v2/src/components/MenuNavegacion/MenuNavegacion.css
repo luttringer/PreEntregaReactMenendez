@@ -46,3 +46,57 @@ header>h1, nav>ul>li
 {
     user-select: none;
 }
+
+@media only screen and (max-width: 1100px)
+{
+    /*header 
+    {
+        position: absolute;
+        top:0;
+    }*/
+
+    header
+    {
+        position: fixed;
+        width: 50%;
+        height: 100vh;
+        right: 0;
+        background-color: #0e0005;
+        z-index: 1;
+    }
+
+    header>h1 
+    {
+        position: fixed;
+        right:18%;
+        top: 15px;
+        color: #f2e6e9;
+        text-align: left;
+        width: 30vw;
+    }
+
+    header>nav 
+    {
+        height: 80vh;
+        margin-top: 20vh;
+    }
+
+    header>nav>ul 
+    {
+        width: 50vw;
+        height: 80vh;
+        display: inline-flex;
+        margin-right: 15px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav>ul>li 
+    {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.3rem;
+        color: #f2e6e9;
+        margin: 15px;
+    }
+}
