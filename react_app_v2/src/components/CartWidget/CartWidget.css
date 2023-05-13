@@ -15,6 +15,13 @@
     width: 7vw;
     height: 7vw;
     object-fit: cover;
+    cursor: pointer;
+}
+
+.productoItem>img:hover 
+{
+    transition: all ease 1.5s;
+    transform: scale(1.3);
 }
 
 .productoItem>h4, .productoItem>p, .productoItem>button

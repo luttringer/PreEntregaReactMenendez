@@ -73,9 +73,14 @@ const CartWidget = (props) =>
       .finally()
   */
 
+  const imgHandler = ()=> 
+  {
+    
+  }
+
   return (
     <div class="productoItem">
-        <img src={obj_producto.urlimgProducto} alt="" />
+        <img src={obj_producto.urlimgProducto} alt="" onMouseEnter={()=>{}}/>
         <h4>{obj_producto.nombreProducto}</h4>
         <p>{"$" + obj_producto.precioProducto}</p>
 
