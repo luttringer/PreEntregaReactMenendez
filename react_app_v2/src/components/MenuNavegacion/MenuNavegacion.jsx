@@ -10,7 +10,7 @@ const MenuNavegacion = () => {
                 <li>HOME</li>
                 <li>ABOUT US</li>
                 <li>MARKET</li>
-                <li><i class="fa-solid fa-cart-shopping"></i></li>
+                <li><i class="fa-solid fa-cart-shopping"></i><div id="counterCarrito">0</div></li>
             </ul>
         </nav>
     </header>

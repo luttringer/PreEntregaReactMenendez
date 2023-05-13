@@ -41,7 +41,15 @@ const CartWidget = (props) =>
   //funciones contador
   const incrementarCounter = () => {contador<obj_producto.stockProducto && setContador(contador+1);}    
   const disminuirCounter = () => {contador>obj_producto.inicialStock && setContador(contador-1);} 
-  const agregarCarrito = () =>{console.log(`Agregado ${contador} items de: ${obj_producto.nombreProducto}. total compra: $${contador*obj_producto.precioProducto} pesos uruguayos.`); }
+  
+  const agregarCarrito = () =>
+  {
+    console.log(`Agregado ${contador} items de: ${obj_producto.nombreProducto}. total compra: $${contador*obj_producto.precioProducto} pesos uruguayos.`);
+    if(contador!=0)
+    {
+      document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1;
+    }
+  }
 
   //ejemplo de promesa 
   const myPromess = (estado) => 
