@@ -1,9 +1,14 @@
 import "./CartWidget.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CartWidget = (props) => 
 {
   let {codigoProducto} = props; 
+  const [opeartive_menos, setOperativeMenos] = useState("false");
+  const [opeartive_mas, setOperativeMas] = useState("false");
+  const [color_menos, setColorMenos] = useState("#70002a");
+  const [color_mas, setColorMas] = useState("#70002a");
+  
   const bd_items_stock =  //codigo,nombre, descripcion, precio, imgURL, stock, inicialStock
   [
     {codigoProducto:"#a0001", nombreProducto:"Vino Tinto Tannat Cabernet Gran Guarda H. STAGNARI 750 ml", descriProducto:"sin descripcion de momento.",precioProducto:449, urlimgProducto:"https://prod-resize.tiendainglesa.com.uy/images/large/P387628-2.jpg?20220505151608,Vino-Tinto-Tannat-Cabernet-Gran-Guarda-H.-STAGNARI-750-ml-en-Tienda-Inglesa", stockProducto:35, inicialStock:1},
@@ -16,13 +21,37 @@ const CartWidget = (props) =>
     {codigoProducto:"#a0008", nombreProducto:"Vino Tannat Marselan Garra H. STAGNARI", descriProducto:"sin descripcion de momento.", precioProducto:565, urlimgProducto:"https://prod-resize.tiendainglesa.com.uy/images/large/P496743-2.jpg?20220505144931,Vino-Tannat-Marselan-Garra-H.-STAGNARI-en-Tienda-Inglesa", stockProducto:87, inicialStock:1},
   ];
   const obj_producto = bd_items_stock.find((producto) => producto.codigoProducto === codigoProducto);
+  //const obj_producto = bd_items_stock.filter(producto=>producto.codigoProducto === codigoProducto); PORQUE NO ANDA CON FILTER? PORQUEEEEEEEE?
   const [contador, setContador] = useState(obj_producto.inicialStock);  //estamos desestructurando la funcion de retorno del useState. nos devuelve valor (que es contador) y una funcion para setearlo.
   
+  useEffect(()=>  //creo un useEffect para cuando se modifica el contador, anulare la operativilidad de los buttons incrementales y decrementales.
+  {
+    if(contador==1)
+    {
+      setOperativeMenos(true);
+      setColorMenos("grey");
+    }else 
+    {
+      setOperativeMenos(false);
+      setColorMenos("#70002a");
+    }
 
-  const incrementarCounter = () => {contador<obj_producto.stockProducto && setContador(contador+1);}
+    if(contador == obj_producto.stockProducto)
+    {
+      setOperativeMas(true);
+      setColorMas("grey");
+    }else 
+    {
+      setOperativeMas(false);
+      setColorMas("#70002a");
+    }
+  }, [contador]);
 
-  const disminuirCounter = () => {contador>obj_producto.inicialStock && setContador(contador-1);}
+  
 
+  //funciones contador
+  const incrementarCounter = () => {contador<obj_producto.stockProducto && setContador(contador+1);}    
+  const disminuirCounter = () => {contador>obj_producto.inicialStock && setContador(contador-1);} 
   const agregarCarrito = () =>
   {
     console.log(`Agregado ${contador} items de: ${obj_producto.nombreProducto}. total compra: $${contador*obj_producto.precioProducto} pesos uruguayos.`); //funcion que avisa se agrego a carrito x cantidad de un item, hay que agregar que item es.
@@ -33,13 +62,12 @@ const CartWidget = (props) =>
     <div class="productoItem">
         <img src={obj_producto.urlimgProducto} alt="" />
         <h4>{obj_producto.nombreProducto}</h4>
-        {/*<p>{obj_producto.descriProducto}</p>   -- mucho texto*/}
         <p>{"$" + obj_producto.precioProducto}</p>
 
         <div>
-          <button onClick={disminuirCounter}>-</button>
+          <button style={{backgroundColor: color_menos}} disabled={opeartive_menos} onClick={disminuirCounter}>-</button>
           <input type="text" value={contador} disabled/>
-          <button onClick={incrementarCounter}>+</button>
+          <button style={{backgroundColor: color_mas}}  disabled={opeartive_mas} onClick={incrementarCounter}>+</button>
         </div>
         
         <button onClick={agregarCarrito}>agregar a carrito</button>
