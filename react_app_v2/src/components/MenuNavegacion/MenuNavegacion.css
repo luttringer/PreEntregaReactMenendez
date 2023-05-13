@@ -47,6 +47,11 @@ header>h1, nav>ul>li
     user-select: none;
 }
 
+.menu_icon
+{
+    display: none;
+}
+
 @media only screen and (max-width: 1100px)
 {
     /*header 
@@ -98,5 +103,15 @@ header>h1, nav>ul>li
         font-size: 1.3rem;
         color: #f2e6e9;
         margin: 15px;
+    }
+
+    .menu_icon 
+    {
+        display: initial;
+        color: white;
+        font-size: 1.5rem;
+        position: fixed;
+        top: 5px;
+        right: 17px;
     }
 }

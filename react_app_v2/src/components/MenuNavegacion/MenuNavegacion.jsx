@@ -3,13 +3,14 @@ import './MenuNavegacion.css'
 const MenuNavegacion = () => {
   return (
     <header>
-        <h1>LagrimasNegras Shop</h1>
+        <h1>Luttringer wine shop</h1>
+        <i class="fa-solid fa-bars menu_icon"></i>
         <nav>
             <ul>
                 <li>HOME</li>
                 <li>ABOUT US</li>
                 <li>MARKET</li>
-                <li>&#128722;</li>
+                <li><i class="fa-solid fa-cart-shopping"></i></li>
             </ul>
         </nav>
     </header>

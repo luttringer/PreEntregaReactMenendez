@@ -11,7 +11,7 @@ const CartWidget = (props) =>
   const [color_mas, setColorMas] = useState("#70002a");
 
   const obj_producto = bd_productos.find((producto) => producto.codigoProducto === codigoProducto);
-  //const obj_producto = bd_items_stock.filter(producto=>producto.codigoProducto === codigoProducto); PORQUE NO ANDA CON FILTER? PORQUEEEEEEEE?
+  //const obj_producto = bd_productos.filter((producto)=>producto.codigoProducto === codigoProducto); //PORQUE NO ANDA CON FILTER? PORQUEEEEEEEE?
   const [contador, setContador] = useState(obj_producto.inicialStock);  //estamos desestructurando la funcion de retorno del useState. nos devuelve valor (que es contador) y una funcion para setearlo.
   
   useEffect(()=>  //creo un useEffect para cuando se modifica el contador, anulare la operativilidad de los buttons incrementales y decrementales.
