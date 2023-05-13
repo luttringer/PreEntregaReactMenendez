@@ -10,7 +10,7 @@ header
     align-items: center;
 }
 
-header>h1 
+header>a>h1 
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.2rem;
@@ -29,9 +29,7 @@ nav>ul
 nav>ul>li 
 {
     list-style: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.8rem;
-    color: #f2e6e9;
+    
     margin: 0 7px;
 }
 
@@ -42,9 +40,27 @@ nav>ul>li:hover
     cursor: pointer;
 }
 
-header>h1, nav>ul>li 
+header>a>h1, nav>ul>li 
 {
+    text-decoration: none;
     user-select: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8rem;
+    color: #f2e6e9;
+}
+
+/* esto es necesario para quitarle los estilos que traen los a que agrega navlink y link*/
+nav>ul>li>a, header>a>h1
+{
+    color: #f2e6e9!important;
+    text-decoration: none!important;
+    text-underline-offset: none;
+    background-color: transparent!important;
+}
+
+header>a>h1
+{
+    text-transform: uppercase;
 }
 
 .menu_icon
@@ -86,7 +102,7 @@ nav>ul>li:last-child div
         z-index: 1;
     }
 
-    header>h1 
+    header>a>h1 
     {
         position: fixed;
         right:18%;

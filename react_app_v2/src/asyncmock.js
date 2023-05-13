@@ -17,7 +17,7 @@ export const getProductos = () =>
         setTimeout(()=> 
         {
             resolve(productos);
-        },2000);
+        },100);
     });
 }
 

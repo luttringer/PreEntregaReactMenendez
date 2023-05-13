@@ -17,7 +17,7 @@ const ShopCont = () => {
   //creo un useEffect para que dado x tiempo habilite en true mi hook?
   useEffect(()=>
   {
-    setTimeout(() => {setShowCartWidget(true)}, 2000);
+    setTimeout(() => {setShowCartWidget(true)}, 100);
   }, []);
 
   return (
