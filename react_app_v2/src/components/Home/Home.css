@@ -9,6 +9,28 @@
     justify-content: flex-start;
 }
 
+.ShopContenedor 
+{
+    width: 100%;
+    grid-template-columns: repeat(4,20%);
+}
+
+.productoItem
+{
+    width: 100%;
+}
+
+.productoItem>h4 
+{
+    text-align: center;
+}
+
+.productoItem>img 
+{
+    width: 80%;
+    height: 150px;
+}
+
 .home_top_banner 
 {
     width: 100%;

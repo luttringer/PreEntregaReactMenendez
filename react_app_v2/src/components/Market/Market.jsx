@@ -5,7 +5,7 @@ const Market = () => {
   return (
     <div class="shopContenedorGlobal">
       <ShopCategorias></ShopCategorias>
-      <ShopCont></ShopCont>
+      <ShopCont tipoProductos="completos"></ShopCont>
     </div>
   );
 }
