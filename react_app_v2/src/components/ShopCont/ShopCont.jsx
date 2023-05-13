@@ -1,18 +1,36 @@
 //import "../CartWidget/CartWidget.jsx";
+import {useState, useEffect} from 'react';
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import './ShopCont.css';
+import {getProductos} from '../../asyncmock';
+
 
 const ShopCont = () => {
+
+  const [productos, setProductos] = useState([]);
+  const [showCartWidget, setShowCartWidget] = useState(false);
+
+  getProductos()
+    .then(res=>setProductos(res))
+    .catch(error=>console.error(error))
+
+  //creo un useEffect para que dado x tiempo habilite en true mi hook?
+  useEffect(()=>
+  {
+    setTimeout(() => {setShowCartWidget(true)}, 2000);
+  }, []);
+
   return (
     <div class="ShopContenedor">
-      <CartWidget codigoProducto="#a0001"/>
-      <CartWidget codigoProducto="#a0002"/>
-      <CartWidget codigoProducto="#a0003"/>
-      <CartWidget codigoProducto="#a0004"/>
-      <CartWidget codigoProducto="#a0005"/>
-      <CartWidget codigoProducto="#a0006"/>
-      <CartWidget codigoProducto="#a0007"/>
-      <CartWidget codigoProducto="#a0008"/>
+      {/*cuando el use effect este en true es que se envian los productos*/}
+      {showCartWidget && <CartWidget codigoProducto="#a0001" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0002" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0003" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0004" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0005" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0006" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0007" bd_productos={productos} />}
+      {showCartWidget && <CartWidget codigoProducto="#a0008" bd_productos={productos} />}
     </div>
   );
 }

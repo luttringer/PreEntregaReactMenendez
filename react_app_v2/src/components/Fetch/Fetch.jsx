@@ -15,17 +15,22 @@ const Fetch = () =>
 
     return (
         <div>
-            <h2>usuarios de JSONPlaceHolder</h2>
             {
-                usuarios.map(usuario=>{
-                    return(
-                        <div key={usuario.id}>
-                            <p>nombre: {usuario.name}</p>
-                            <p>email: {usuario.email}</p>
-                        </div>
-                    )
-                })
+                /* 
+                <h2>usuarios de JSONPlaceHolder</h2>
+                    {
+                        usuarios.map(usuario=>{
+                            return(
+                                <div key={usuario.id}>
+                                    <p>nombre: {usuario.name}</p>
+                                    <p>email: {usuario.email}</p>
+                                </div>
+                            )
+                        })
+                    }
+                */
             }
+            
         </div>
     );
 }
