@@ -1,8 +1,11 @@
+import ShopCategorias from "../ShopCategorias/ShopCategorias";
+import ShopCont from "../ShopCont/ShopCont";
 
 const Market = () => {
   return (
-    <div>
-      
+    <div class="shopContenedorGlobal">
+      <ShopCategorias></ShopCategorias>
+      <ShopCont></ShopCont>
     </div>
   );
 }

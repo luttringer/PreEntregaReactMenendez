@@ -1,6 +1,5 @@
 import ShopCategorias from "../ShopCategorias/ShopCategorias";
 import ShopCont from "../ShopCont/ShopCont";
-
 import './Home.css';
 
 
@@ -9,8 +8,8 @@ const Home = () => {
     <>
         <img class="home_top_banner" src={process.env.PUBLIC_URL + "/homeBanners/cork-g2f16d5554_1280.jpg"} alt="" />
         <div class="shopContenedorGlobal">
-        <ShopCategorias></ShopCategorias>
-        <ShopCont></ShopCont>
+          <ShopCategorias></ShopCategorias>
+          <ShopCont></ShopCont>
         </div>
     </>
     

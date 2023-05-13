@@ -4,7 +4,7 @@ import {Link,NavLink} from 'react-router-dom';
 const MenuNavegacion = () => {
   return (
     <header>
-        <Link class="navlink" to="/"><h1>Luttringer wine shop</h1></Link>
+        <Link class="navlink" to="/home"><h1>Luttringer wine shop</h1></Link>
         <i class="fa-solid fa-bars menu_icon"></i>
         <nav>
             <ul>
