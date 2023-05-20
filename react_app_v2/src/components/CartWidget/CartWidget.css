@@ -45,7 +45,7 @@
     padding:0;
 }
 
-.productoItem>button
+.productoItem>button, .ver_detalles_btn
 {
     width: 150px;
     height: 30px;
@@ -55,9 +55,11 @@
     font-size: 0.7rem;
     font-weight: 900;
     box-sizing:border-box;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.productoItem>button:hover 
+.productoItem>button:hover, .ver_detalles_btn:hover
 {
     transition: all ease-in 0.5s;
     background-color:#1c000a;
@@ -100,6 +102,11 @@
 {
     justify-content: center;
     align-items: center;
+}
+
+.ver_detalles_btn 
+{
+    margin-top: 3px;
 }
 
 @media only screen and (max-width: 1500px) and (min-width:1100px)

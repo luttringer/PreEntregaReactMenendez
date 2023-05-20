@@ -1,6 +1,6 @@
 import "./CartWidget.css";
 import { useState, useEffect } from "react";
-
+import {Link} from 'react-router-dom';
 
 const CartWidget = (props) => 
 {
@@ -77,6 +77,10 @@ const CartWidget = (props) =>
         </div>
           
         <button class="agregar_carrito_btn" style={{display:tipo_producto_vista}} onClick={agregarCarrito}>agregar a carrito</button>
+        
+        <Link class="navlink" to={`/itemDetail/${obj_producto.codigoProducto}`}>
+          <button class="agregar_carrito_btn ver_detalles_btn" style={{display:tipo_producto_vista}} >ver detalles</button>
+        </Link>
     </div>
     
   );
