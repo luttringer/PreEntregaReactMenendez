@@ -14,15 +14,10 @@ const ItemDetail = () =>
             .catch(error => console.log(error))
     }, [idItem])
 
-    setTimeout(()=>
-    {
-        console.log("hola");
-    },500);
-
     return(
         <div>
             <p>algo</p>
-            <h2> nombre producto: {producto.nombreProducto}</h2>
+            {producto ? <h2> nombre producto: {producto.nombreProducto}</h2> : 'Cargando producto...'}
         </div>
     );
     

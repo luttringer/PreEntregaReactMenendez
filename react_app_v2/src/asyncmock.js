@@ -30,6 +30,8 @@ export const getProductos = () =>
     });
 }
 
+
+
 //funcion que devuelve un unico producto, o sea, el objeto producto
 export const getUnProducto = (id) => 
 {
