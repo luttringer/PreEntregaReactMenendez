@@ -1,6 +1,5 @@
 import ShopCategorias from "../ShopCategorias/ShopCategorias";
 import ShopCont from "../ShopCont/ShopCont";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 const Market = () => 

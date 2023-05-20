@@ -10,21 +10,12 @@ const CartWidget = (props) =>
   const [color_menos, setColorMenos] = useState("#70002a");
   const [color_mas, setColorMas] = useState("#70002a");
   const [tipo_producto_vista, setTipoProducto] = useState("initial");
-
-
   const obj_producto = bd_productos.find((producto) => producto.codigoProducto === codigoProducto);
-  //const obj_producto = bd_productos.filter((producto)=>producto.codigoProducto === codigoProducto); //PORQUE NO ANDA CON FILTER? PORQUEEEEEEEE?
   const [contador, setContador] = useState(obj_producto.inicialStock);  //estamos desestructurando la funcion de retorno del useState. nos devuelve valor (que es contador) y una funcion para setearlo.
   
   useEffect(()=>
   {
-    if(tipo_producto==":simples")
-    {
-      setTipoProducto("none");
-    }else
-    {
-      setTipoProducto("inherit");
-    }
+    (tipo_producto==":simples") ? setTipoProducto("none") : setTipoProducto("inherit");
   })
 
   useEffect(()=>  //creo un useEffect para cuando se modifica el contador, anulare la operativilidad de los buttons incrementales y decrementales.
@@ -57,10 +48,7 @@ const CartWidget = (props) =>
   const agregarCarrito = () =>
   {
     console.log(`Agregado ${contador} items de: ${obj_producto.nombreProducto}. total compra: $${contador*obj_producto.precioProducto} pesos uruguayos.`);
-    if(contador!=0)
-    {
-      document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1;
-    }
+    contador!=0 && (document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1);
   }
 
   return (

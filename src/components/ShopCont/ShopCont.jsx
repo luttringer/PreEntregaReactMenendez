@@ -1,7 +1,6 @@
-//import "../CartWidget/CartWidget.jsx";
+import './ShopCont.css';
 import {useState, useEffect} from 'react';
 import CartWidget from "../CartWidget/CartWidget.jsx";
-import './ShopCont.css';
 import {getProductos} from '../../asyncmock';
 import {getProductosCategoria} from '../../asyncmock';
 import { getProductosMenor } from '../../asyncmock';
@@ -49,12 +48,7 @@ const ShopCont = (props) => {
   return (
     <div class="ShopContenedor">
       {  
-        (showCartWidget) && 
-        (
-          productos.map(producto => (
-            <CartWidget codigoProducto={producto.codigoProducto} bd_productos={productos} tipo_producto={tipoProductos} />
-          ))
-        )
+        (showCartWidget) && productos.map(producto => (<CartWidget codigoProducto={producto.codigoProducto} bd_productos={productos} tipo_producto={tipoProductos} />))
       }
     </div>
   );

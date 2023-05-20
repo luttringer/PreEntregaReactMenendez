@@ -1,6 +1,5 @@
-import ShopCont from "../ShopCont/ShopCont";
 import './Home.css';
-
+import ShopCont from "../ShopCont/ShopCont";
 
 const Home = () => {
   return (
