@@ -23,14 +23,14 @@ const ShopCont = (props) => {
   return (
     <div class="ShopContenedor">
       {/*cuando el use effect este en true es que se envian los productos*/}
-      {showCartWidget && <CartWidget codigoProducto="#a0001" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0002" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0003" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0004" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0005" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0006" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0007" bd_productos={productos} tipo_producto={tipoProductos} />}
-      {showCartWidget && <CartWidget codigoProducto="#a0008" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="14" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="156" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="436" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="232" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="32" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="5421" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="222" bd_productos={productos} tipo_producto={tipoProductos} />}
+      {showCartWidget && <CartWidget codigoProducto="666" bd_productos={productos} tipo_producto={tipoProductos} />}
     </div>
   );
 }
