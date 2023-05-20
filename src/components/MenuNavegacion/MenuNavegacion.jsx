@@ -10,7 +10,7 @@ const MenuNavegacion = () => {
             <ul>
                 <li><NavLink class="navlink" to={"/"}>HOME</NavLink></li>
                 <li><NavLink class="navlink" to={"/aboutUs"}>ABOUT US</NavLink></li>
-                <li><NavLink class="navlink" to={"/market"}>MARKET</NavLink></li>
+                <li><NavLink class="navlink" to={"/market/:completos"}>MARKET</NavLink></li>
                 <li><NavLink class="navlink" to={"/"}><i class="fa-solid fa-cart-shopping"></i><div id="counterCarrito">0</div></NavLink></li>
             </ul>
         </nav>

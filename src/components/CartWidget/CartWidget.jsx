@@ -18,7 +18,7 @@ const CartWidget = (props) =>
   
   useEffect(()=>
   {
-    if(tipo_producto=="simples")
+    if(tipo_producto==":simples")
     {
       setTipoProducto("none");
     }else
@@ -49,7 +49,6 @@ const CartWidget = (props) =>
       setColorMas("#70002a");
     }
   }, [contador]);
-
 
   //funciones contador
   const incrementarCounter = () => {contador<obj_producto.stockProducto && setContador(contador+1);}    
