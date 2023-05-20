@@ -1,12 +1,10 @@
 .shopContenedorGlobal
 {
     width: 100%;
-    height: auto;
-    box-sizing: border-box;
-    margin: 0 auto;
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
-    justify-content: flex-start;
+    flex-direction: row;
 }
 
 .ShopContenedor 
