@@ -4,14 +4,16 @@ import {Link} from 'react-router-dom';
 
 const CartWidget = (props) => 
 {
-  let {codigoProducto,bd_productos,tipo_producto} = props; //estoy recibiendo la bd de los productos como una promesa, como esa promesa depende de un tiempo de conexion x pues espere x para enviarla XD (si la bd demora pues yo demoro en usarla, si todos somos pobres no hay desigualdad.)
+  let {dataProducto,tipo_producto} = props; //estoy recibiendo la bd de los productos como una promesa, como esa promesa depende de un tiempo de conexion x pues espere x para enviarla XD (si la bd demora pues yo demoro en usarla, si todos somos pobres no hay desigualdad.)
+  
+  
   const [opeartive_menos, setOperativeMenos] = useState("false");
   const [opeartive_mas, setOperativeMas] = useState("false");
   const [color_menos, setColorMenos] = useState("#70002a");
   const [color_mas, setColorMas] = useState("#70002a");
   const [tipo_producto_vista, setTipoProducto] = useState("initial");
-  const obj_producto = bd_productos.find((producto) => producto.codigoProducto === codigoProducto);
-  const [contador, setContador] = useState(obj_producto.inicialStock);  //estamos desestructurando la funcion de retorno del useState. nos devuelve valor (que es contador) y una funcion para setearlo.
+  //const obj_producto = bd_productos.find((producto) => producto.codigoProducto === codigoProducto);
+  const [contador, setContador] = useState(1);  //estamos desestructurando la funcion de retorno del useState. nos devuelve valor (que es contador) y una funcion para setearlo.
   
   useEffect(()=>
   {
@@ -30,7 +32,7 @@ const CartWidget = (props) =>
       setColorMenos("#70002a");
     }
 
-    if(contador === obj_producto.stockProducto)
+    if(contador === dataProducto.stock)
     {
       setOperativeMas(true);
       setColorMas("grey");
@@ -42,20 +44,21 @@ const CartWidget = (props) =>
   }, [contador]);
 
   //funciones contador
-  const incrementarCounter = () => {contador<obj_producto.stockProducto && setContador(contador+1);}    
-  const disminuirCounter = () => {contador>obj_producto.inicialStock && setContador(contador-1);} 
+  const incrementarCounter = () => {contador<dataProducto.stock && setContador(contador+1);}    
+  const disminuirCounter = () => {contador>dataProducto.stock && setContador(contador-1);} 
   
+
   const agregarCarrito = () =>
   {
-    console.log(`Agregado ${contador} items de: ${obj_producto.nombreProducto}. total compra: $${contador*obj_producto.precioProducto} pesos uruguayos.`);
+    console.log(`Agregado ${contador} items de: ${dataProducto.nombre}. total compra: $${contador*dataProducto.precio} pesos uruguayos.`);
     contador!=0 && (document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1);
   }
 
   return (
-    <div class="productoItem">
-        <img src={obj_producto.urlimgProducto} alt="" />
-        <h4>{obj_producto.nombreProducto}</h4>
-        <p>{"$" + obj_producto.precioProducto}</p>
+    <div className="productoItem">
+        <img src={dataProducto.imageUrl} alt="" />
+        <h4>{dataProducto.nombre}</h4>
+        <p>{"$" + dataProducto.precio}</p>
         
         <div style={{display:tipo_producto_vista}}>
           <button style={{backgroundColor: color_menos}} disabled={opeartive_menos} onClick={disminuirCounter}>-</button>
@@ -63,10 +66,10 @@ const CartWidget = (props) =>
           <button style={{backgroundColor: color_mas}}  disabled={opeartive_mas} onClick={incrementarCounter}>+</button>
         </div>
           
-        <button class="agregar_carrito_btn" style={{display:tipo_producto_vista}} onClick={agregarCarrito}>agregar a carrito</button>
+        <button className="agregar_carrito_btn" style={{display:tipo_producto_vista}} onClick={agregarCarrito}>agregar a carrito</button>
         
-        <Link class="navlink" to={`/itemDetail/${obj_producto.codigoProducto}`}>
-          <button class="agregar_carrito_btn ver_detalles_btn" style={{display:tipo_producto_vista}} >ver detalles</button>
+        <Link className="navlink" to={`/itemDetail/${dataProducto.id}`}>
+          <button className="agregar_carrito_btn ver_detalles_btn" style={{display:tipo_producto_vista}} >ver detalles</button>
         </Link>
     </div>
     

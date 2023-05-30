@@ -1,43 +1,65 @@
 import "./ItemDetail.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getUnProducto } from "../../asyncmock";
-
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from "../../services/firebase_con";
 
 const ItemDetail = () => 
 {
+  const id = useParams();
+  const id_item = parseInt(id.idItem);
   const [producto, setProducto] = useState(null);
-  const { idItem } = useParams();
-  const [descProd, setDescProd] = useState(false);
 
-  useEffect(() => 
-  {
-    getUnProducto(idItem)
-      .then((res) => setProducto(res))
-      .catch((error) => console.log(error));
-  }, [idItem]);
 
-  useEffect(()=>
-  {
-    setTimeout(() => {setDescProd(true)}, 100);
-  }, []);
+  async function fetchMultipleDocuments() {
+    const collectionRef = collection(db, 'inventario');
+    const q = query(collectionRef, where('id', '==', id_item));
+    
+    try {
+      const querySnapshot = await getDocs(q);
+      let productos = []; // Cambiado el nombre de la variable
+      querySnapshot.forEach((doc) => {
+        productos.push(doc.data());
+        console.table(productos);
+      });
+      return [...productos];
+    } catch (error) {
+      console.error('Error al obtener los documentos:', error);
+    }
+  }
+  
+  
+  useEffect(() => {
+    const obtenerDatosProducto = async () => {
+      const datosProducto = await fetchMultipleDocuments();
+      setProducto(datosProducto);
+    };
+
+    obtenerDatosProducto();
+  }, [id_item]);
+
+  if (!producto) {
+    return <p>Cargando...</p>;
+  }
+
 
   return (
     <>
-        <section class="cont_item_detail">
-            {descProd && <img src={producto.urlimgProducto} alt="" />}
-            <div>
-                {descProd && <p><strong>nombre producto:</strong> {producto.nombreProducto}</p>}
-                {descProd && <p><strong>categoría producto:</strong> {producto.categoriaProducto}</p>}
-                {descProd && <p><strong>descripción producto:</strong> {producto.descriProducto}</p>}
-                {descProd && <p><strong>stock actual:</strong> {producto.stockProducto}</p>}
-                {descProd && <p><strong>precio:</strong> {producto.precioProducto}</p>}    
-
-                <button>regresar a MARKET</button>
-                <button>agregar a carrito</button>
-            </div>
+      {producto && (
+        <section className="cont_item_detail">
+          <img src={producto[0].imageUrl} alt="" />
+          <div>
+            <p><strong>nombre producto:</strong> {producto[0].nombre}</p>
+            <p><strong>categoría producto:</strong> {producto[0].categoria}</p>
+            <p><strong>descripción producto:</strong> {producto[0].descripcion}</p>
+            <p><strong>stock actual:</strong> {producto[0].stock}</p>
+            <p><strong>precio:</strong> {producto[0].precio}</p>
+            <button>regresar a MARKET</button>
+            <button>agregar a carrito</button>
+          </div>
         </section>
-    </>
+      )}
+  </>
   );
 };
 

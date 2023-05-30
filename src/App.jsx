@@ -4,8 +4,7 @@ import Home from './components/Home/Home';
 import Market from './components/Market/Market';
 import AboutUs from './components/AboutUs/AboutUs';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Switch, Router } from 'react-router-dom';
 
 function App() {
   return (
@@ -16,9 +15,14 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/aboutUs' element={<AboutUs/>}/>
           <Route path='/market/:idShowCategory' element={<Market/>}/>
-          <Route path="/itemDetail/:idItem" element={<ItemDetail/>} />
+          <Route path='/itemDetail/:idItem' element={<ItemDetail/>}/>
         </Routes>
       </BrowserRouter>   
+
+      {/*
+      <Productos></Productos>
+      <Formulario></Formulario>
+      */}
     </>
   );
 }
