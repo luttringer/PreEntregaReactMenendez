@@ -14,7 +14,7 @@ const CartWidget = (props) =>
   
   useEffect(()=>
   {
-    (tipo_producto==":simples") ? setTipoProducto("none") : setTipoProducto("inherit");
+    (tipo_producto===":simples") ? setTipoProducto("none") : setTipoProducto("inherit");
   })
 
   useEffect(()=>  //useEffect encargado de controlar el comportamiento de los botones - y + del contador. se encarga de ponerlos grises dependiendo y disabled dependiendo el caso
@@ -32,7 +32,7 @@ const CartWidget = (props) =>
   const agregarCarrito = () =>
   {
     console.log(`Agregado ${contador} items de: ${dataProducto.nombre}. total compra: $${contador*dataProducto.precio} pesos uruguayos.`);
-    contador!=0 && (document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1);
+    contador!==0 && (document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1);
   }
 
   return (

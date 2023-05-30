@@ -22,6 +22,7 @@ const ShopCont = (props) =>
     case ":completos":
     case ":simples":          //en caso de que se soliciten tanto items completos como simples, llamo funcion que trae todos
       fetchMultipleItems();
+      break;
     case ":menor":            //en caso de que se soliciten items ordenados de menor a mayor, llamo funcion que los traiga a todos ordenados 
       break;
     case ":mayor":            //en caso de que se soliciten items ordenados de mayor a menor, llamo funcion que los traiga a todos ordenados
@@ -30,25 +31,7 @@ const ShopCont = (props) =>
       //categorias: 1) cabernet 2) cabernet sauvignon 3) malbec 4) tannat
       break;
   }
-  /*
-  if(tipoProductos==":completos" || tipoProductos==":simples") //en caso de que se soliciten tanto items completos como simples, llamo funcion que trae todos
-  {
-    fetchMultipleItems();
-  }else 
-  {
-    if(tipoProductos==":menor") //en caso de que se soliciten items ordenados de menor a mayor, llamo funcion que los traiga a todos ordenados    
-    {
-
-    }else if(tipoProductos==":mayor") //en caso de que se soliciten items ordenados de mayor a menor, llamo funcion que los traiga a todos ordenados
-    {
-
-    }else                                    
-    {
-      //categorias: 1) cabernet 2) cabernet sauvignon 3) malbec 4) tannat
-    } 
-  }*/
-
-  
+ 
   async function fetchMultipleItems()   //declaro una funcion asyncrona que traiga todos mis productos de mi coleccion.
   {
     if(fetchMultipleItems.productsCache)     //antes de volver a hacer la consulta, consulto si se encuentra en cache (esto para ahorrar lecturas consumidas en firebase)            
