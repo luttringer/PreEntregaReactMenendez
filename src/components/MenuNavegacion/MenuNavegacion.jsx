@@ -1,7 +1,8 @@
 import './MenuNavegacion.css';
 import {Link,NavLink} from 'react-router-dom';
 
-const MenuNavegacion = () => {
+const MenuNavegacion = () => 
+{
   return (
     <header>
         <Link className="navlink" to="/"><h1>Luttringer wine shop</h1></Link>

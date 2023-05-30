@@ -11,11 +11,13 @@ const ItemDetail = () =>
   const [producto, setProducto] = useState(null);
 
 
-  async function fetchMultipleDocuments() {
+  async function fetchMultipleDocuments() 
+  {
     const collectionRef = collection(db, 'inventario');
     const q = query(collectionRef, where('id', '==', id_item));
     
-    try {
+    try 
+    {
       const querySnapshot = await getDocs(q);
       let productos = []; // Cambiado el nombre de la variable
       querySnapshot.forEach((doc) => {
@@ -23,14 +25,17 @@ const ItemDetail = () =>
         console.table(productos);
       });
       return [...productos];
-    } catch (error) {
+    } catch (error) 
+    {
       console.error('Error al obtener los documentos:', error);
     }
   }
   
   
-  useEffect(() => {
-    const obtenerDatosProducto = async () => {
+  useEffect(() => 
+  {
+    const obtenerDatosProducto = async () => 
+    {
       const datosProducto = await fetchMultipleDocuments();
       setProducto(datosProducto);
     };
@@ -38,10 +43,10 @@ const ItemDetail = () =>
     obtenerDatosProducto();
   }, [id_item]);
 
-  if (!producto) {
+  if (!producto) 
+  {
     return <p>Cargando...</p>;
   }
-
 
   return (
     <>

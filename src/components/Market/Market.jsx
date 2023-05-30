@@ -7,7 +7,7 @@ const Market = () =>
   const { idShowCategory } = useParams();
   
   return (
-    <div class="shopContenedorGlobal">
+    <div className="shopContenedorGlobal">
       <ShopCategorias></ShopCategorias>
       <ShopCont tipoProductos={idShowCategory}></ShopCont>
     </div>
