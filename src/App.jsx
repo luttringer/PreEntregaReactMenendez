@@ -4,9 +4,10 @@ import Home from './components/Home/Home';
 import Market from './components/Market/Market';
 import AboutUs from './components/AboutUs/AboutUs';
 import ItemDetail from './components/ItemDetail/ItemDetail';
-import { BrowserRouter, Routes, Route, Switch, Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+function App() 
+{
   return (
     <>
       <BrowserRouter>
