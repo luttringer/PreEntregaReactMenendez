@@ -18,11 +18,6 @@ function App() {
           <Route path='/itemDetail/:idItem' element={<ItemDetail/>}/>
         </Routes>
       </BrowserRouter>   
-
-      {/*
-      <Productos></Productos>
-      <Formulario></Formulario>
-      */}
     </>
   );
 }
