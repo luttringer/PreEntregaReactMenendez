@@ -1,0 +1,34 @@
+.listaProductos
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:0.8rem
+}
+.listaProductos li:hover
+{
+    transition: color ease-in .5s;
+    cursor: pointer;
+    color: red;
+}
+
+.listaProductos li>strong>span 
+{
+    color: green;
+}
+
+button
+{
+    border: none;
+    background-color: #0e0005;
+    color: #f2e6e9;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover
+{
+    transition: all ease .5s;
+    background-color: #f2e6e9;
+    color: #0e0005;
+}

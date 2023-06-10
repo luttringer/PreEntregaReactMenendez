@@ -33,15 +33,8 @@ const CartWidget = (props) =>
   
   const agregarCarrito = () =>
   {
-
-    const producto = { id: dataProducto.id, nombre: dataProducto.nombre, precioTotal: (contador * dataProducto.precio), cantidadSeleccionada: contador };
+    const producto = { id: dataProducto.id, nombre: dataProducto.nombre, precio: dataProducto.precio, cantidadSeleccionada: contador };
     agregarProducto(producto);
-    
-    
-    console.log(`Agregado ${contador} items de: ${dataProducto.nombre}. total compra: $${contador*dataProducto.precio} pesos uruguayos.`);
-    contador!==0 && (document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1);
-    
-
   }
 
   return (
