@@ -12,7 +12,7 @@ const MenuNavegacion = () =>
                 <li><NavLink className="navlink" to={"/"}>HOME</NavLink></li>
                 <li><NavLink className="navlink" to={"/aboutUs"}>ABOUT US</NavLink></li>
                 <li><NavLink className="navlink" to={"/market/:completos"}>MARKET</NavLink></li>
-                <li><NavLink className="navlink" to={"/"}><i className="fa-solid fa-cart-shopping"></i><div id="counterCarrito">0</div></NavLink></li>
+                <li><NavLink className="navlink" to={"/Carrito"}><i className="fa-solid fa-cart-shopping"></i><div id="counterCarrito">0</div></NavLink></li>
             </ul>
         </nav>
     </header>

@@ -1,6 +1,7 @@
 import "./CartWidget.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {Link} from 'react-router-dom';
+import { CarritoContext } from "../../context/carritoContext";
 
 const CartWidget = (props) => 
 {
@@ -11,7 +12,8 @@ const CartWidget = (props) =>
   const [color_mas, setColorMas] = useState("#70002a");
   const [tipo_producto_vista, setTipoProducto] = useState("initial");
   const [contador, setContador] = useState(1);  //estamos desestructurando la funcion de retorno del useState. nos devuelve valor (que es contador) y una funcion para setearlo.
-  
+  const { agregarProducto } = useContext(CarritoContext);
+
   useEffect(()=>
   {
     (tipo_producto===":simples") ? setTipoProducto("none") : setTipoProducto("inherit");
@@ -31,8 +33,15 @@ const CartWidget = (props) =>
   
   const agregarCarrito = () =>
   {
+
+    const producto = { id: dataProducto.id, nombre: dataProducto.nombre, precioTotal: (contador * dataProducto.precio), cantidadSeleccionada: contador };
+    agregarProducto(producto);
+    
+    
     console.log(`Agregado ${contador} items de: ${dataProducto.nombre}. total compra: $${contador*dataProducto.precio} pesos uruguayos.`);
     contador!==0 && (document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) + 1);
+    
+
   }
 
   return (
