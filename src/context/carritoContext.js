@@ -15,7 +15,6 @@ export const CarritoProvider = ({ children }) => {
     }else
     {
         //ya exisate producto en el array carrito
-        
         for(const item of carrito.values())
         {
             if(item.id == producto.id)
@@ -23,18 +22,6 @@ export const CarritoProvider = ({ children }) => {
                 item.cantidadSeleccionada += producto.cantidadSeleccionada;
             }
         }
-    /*
-    if (productoExistente) {
-      const nuevoCarrito = carrito.map(item => {
-        if (item.id === producto.id) {
-          return { ...item, cantidad: item.cantidad + producto.cantidadSeleccionada };
-        }
-        return item;
-      });
-      setCarrito(nuevoCarrito);
-    } else {
-      setCarrito([...carrito, { ...producto, cantidad }]);
-    }*/
     }
 }
 

@@ -32,3 +32,58 @@ button:hover
     background-color: #f2e6e9;
     color: #0e0005;
 }
+
+.vaciarCarrito
+{
+    margin-top: 50px;
+}
+
+.formularioUsr
+{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    margin-top: 10vh;
+}
+
+.formularioUsr>input
+{
+    width: 250px;
+    height: 30px;
+    padding-left: 5px;
+    border: none;
+    background-color: #f2e6e9;
+    color: #881c39;
+    margin-top: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formularioUsr>button
+{
+    margin-top: 25px;
+}
+
+.contCarrito 
+{
+    width: 100%;
+    position: relative;
+    padding: 50px;
+}
+
+.contCarrito>h2
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0e0005;
+    font-size: 1.2rem;
+}
+
+.contCarrito>p
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #0e0005;
+    font-size: .8rem;
+}
