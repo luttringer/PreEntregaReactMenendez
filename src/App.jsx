@@ -7,7 +7,7 @@ import ItemDetail from './components/ItemDetail/ItemDetail';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Carrito from './components/Carrito/Carrito';
 import { CarritoProvider } from './context/carritoContext.js';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() 

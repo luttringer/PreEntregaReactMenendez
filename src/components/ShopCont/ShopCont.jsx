@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react';
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import { getDocs, collection, query, orderBy, where} from "firebase/firestore";
 import { db } from '../../services/firebase_con';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ShopCont = (props) => 
 {
@@ -86,10 +88,11 @@ const ShopCont = (props) =>
           products.push(productData);
         });
 
+        toast("Productos cargados satisfactoriamente.");
         return products;
       } catch (error) 
       {
-        console.error('Error al obtener los productos:', error);
+        toast("Error al obtener los productos. Codigo de error:", error);
       }
     
   }
@@ -106,9 +109,10 @@ const ShopCont = (props) =>
           products.push(productData);
         });
 
+        toast("Productos filtrados por precio cargados satisfactoriamente.");
         return products;
       } catch (error) {
-        console.error('Error al obtener los productos:', error);
+        toast("Error al obtener los productos. Codigo de error:", error);
         return []; // Devolver un array vacío en caso de error
       }
     
@@ -126,9 +130,10 @@ const ShopCont = (props) =>
         products.push(productData);
       });
       
+      toast(`Productos filtrados por categoria cargados satisfactoriamente.`);
       return products;
     } catch (error) {
-      console.error('Error al obtener los productos:', error);
+      toast("Error al obtener los productos. Codigo de error:", error);
       return []; // Devolver un array vacío en caso de error
     }
   }

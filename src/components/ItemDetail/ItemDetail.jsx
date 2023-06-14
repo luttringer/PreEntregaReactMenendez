@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from "../../services/firebase_con";
 import {Link} from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = () => 
@@ -25,9 +25,8 @@ const ItemDetail = () =>
       let productos = []; // Cambiado el nombre de la variable
       querySnapshot.forEach((doc) => {
         productos.push(doc.data());
-        console.table(productos);
       });
-      toast("Producto cargado satisfactoriamente");
+      toast("Detalles de producto cargados satisfactoriamente");
       return [...productos];
     } catch (error) 
     {
@@ -71,7 +70,6 @@ const ItemDetail = () =>
           </div>
         </section>
       )}
-      <ToastContainer />
   </>
   );
 };

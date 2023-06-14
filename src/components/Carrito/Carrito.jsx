@@ -3,6 +3,8 @@ import React, { useContext, useState } from 'react';
 import { CarritoContext } from '../../context/carritoContext';
 import { db } from "../../services/firebase_con";
 import { collection, addDoc, updateDoc, where, query, getDocs} from 'firebase/firestore';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Carrito = () => 
 {
@@ -11,20 +13,11 @@ const Carrito = () =>
     const [apellido, setApellido] = useState('');
     const [telefono, setTelefono] = useState('');
     const [correo, setCorreo] = useState('');
-
     const handleNombreChange = e => {setNombre(e.target.value)};
-
     const handleApellidoChange = e => {setApellido(e.target.value)};
-
     const handleTelefonoChange = e => {setTelefono(e.target.value)};
-
     const handleCorreoChange = e => {setCorreo(e.target.value)};
-
-    const handleRealizarCompra = () => 
-    {
-        agregarOrden(nombre,apellido,telefono,correo,[...carrito]);
-    };
-
+    const handleRealizarCompra = () => {agregarOrden(nombre,apellido,telefono,correo,[...carrito])};
     const formularioValido = nombre !== '' && apellido !== '' && telefono !== '' && correo !== '';
 
     const agregarOrden = async (clienteNombre, clienteApellido, clienteTelefono, clienteCorreo, clienteCompraCadena) => 
@@ -45,11 +38,11 @@ const Carrito = () =>
             actualizarStock(val.id, val.cantidadSeleccionada);
           }
           vaciarCarrito();
-          alert("compra realizada satisfactoriamente");
+          toast("compra realizada satisfactoriamente");
 
         } catch (error) 
         {
-            alert("se encontro un error en su registro de compra");
+          toast("se encontro un error en su registro de compra");
         }
     };
 
@@ -66,12 +59,12 @@ const Carrito = () =>
             const nuevoStock = stockActual - cantidad;
       
             await updateDoc(productoDoc.ref, { stock: nuevoStock });
-            console.log('Stock actualizado correctamente');
+            toast('Stock actualizado correctamente');
           } else {
-            console.error('El producto no existe');
+            toast('El producto no existe. No se pudo actualizar stock.');
           }
         } catch (error) {
-          console.error('Error al restar el stock:', error);
+          toast('Error al restar el stock:', error);
         }
       };
 

@@ -2,6 +2,8 @@ import "./CartWidget.css";
 import { useState, useEffect, useContext } from "react";
 import {Link} from 'react-router-dom';
 import { CarritoContext } from "../../context/carritoContext";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CartWidget = (props) => 
 {
@@ -35,27 +37,29 @@ const CartWidget = (props) =>
   {
     const producto = { id: dataProducto.id, nombre: dataProducto.nombre, precio: dataProducto.precio, cantidadSeleccionada: contador };
     agregarProducto(producto);
+    toast("Producto agregado a su carrito satisfactoriamente.");
   }
 
   return (
-    <div className="productoItem">
-        <img src={dataProducto.imageUrl} alt="" />
-        <h4>{dataProducto.nombre}</h4>
-        <p>{"$" + dataProducto.precio}</p>
+    <>
+      <div className="productoItem">
+          <img src={dataProducto.imageUrl} alt="" />
+          <h4>{dataProducto.nombre}</h4>
+          <p>{"$" + dataProducto.precio}</p>
+          
+          <div style={{display:tipo_producto_vista}}>
+            <button style={{backgroundColor: color_menos}} disabled={Boolean(opeartive_menos)} onClick={disminuirCounter}>-</button>
+            <input type="text" value={contador} disabled/>
+            <button style={{backgroundColor: color_mas}}  disabled={Boolean(opeartive_mas)} onClick={incrementarCounter}>+</button>
+          </div>
         
-        <div style={{display:tipo_producto_vista}}>
-          <button style={{backgroundColor: color_menos}} disabled={Boolean(opeartive_menos)} onClick={disminuirCounter}>-</button>
-          <input type="text" value={contador} disabled/>
-          <button style={{backgroundColor: color_mas}}  disabled={Boolean(opeartive_mas)} onClick={incrementarCounter}>+</button>
-        </div>
-      
-        <button className="agregar_carrito_btn" style={{display:tipo_producto_vista}} onClick={agregarCarrito}>agregar a carrito</button>
-        
-        <Link className="navlink" to={`/itemDetail/${dataProducto.id}`}>
-          <button className="agregar_carrito_btn ver_detalles_btn" style={{display:tipo_producto_vista}} >ver detalles</button>
-        </Link>
-    </div>
-    
+          <button className="agregar_carrito_btn" style={{display:tipo_producto_vista}} onClick={agregarCarrito}>agregar a carrito</button>
+          
+          <Link className="navlink" to={`/itemDetail/${dataProducto.id}`}>
+            <button className="agregar_carrito_btn ver_detalles_btn" style={{display:tipo_producto_vista}}>ver detalles</button>
+          </Link>
+      </div>  
+    </>
   );
 }
 

@@ -1,4 +1,6 @@
 import React, { createContext, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const CarritoContext = createContext();
 
 export const CarritoProvider = ({ children }) => {
@@ -25,15 +27,19 @@ export const CarritoProvider = ({ children }) => {
     }
 }
 
-  const eliminarProducto = (productoId) => {
+  const eliminarProducto = (productoId) => 
+  {
     const nuevoCarrito = carrito.filter(item => item.id !== productoId);
     document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) - 1;
+    toast("Producto eliminado correctamente.");
     setCarrito(nuevoCarrito);
   };
 
-  const vaciarCarrito = () => {
+  const vaciarCarrito = () => 
+  {
     setCarrito([]);
     document.querySelector("#counterCarrito").innerHTML= 0;
+    toast("Carrito vaciado correctamente.");
   };
 
   return (
