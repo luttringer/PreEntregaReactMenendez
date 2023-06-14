@@ -44,7 +44,10 @@ const CartWidget = (props) =>
     <>
       <div className="productoItem">
           <img src={dataProducto.imageUrl} alt="" />
-          <h4>{dataProducto.nombre}</h4>
+          
+          <Link className="navlink navlinkCart" to={`/itemDetail/${dataProducto.id}`}>
+            <h4>{dataProducto.nombre}</h4>
+          </Link>
           <p>{"$" + dataProducto.precio}</p>
           
           <div style={{display:tipo_producto_vista}}>

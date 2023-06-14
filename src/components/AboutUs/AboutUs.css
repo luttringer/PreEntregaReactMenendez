@@ -24,3 +24,9 @@
     line-height: 1.5rem;
     text-align: center;
 }
+
+.contChris>h2
+{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}

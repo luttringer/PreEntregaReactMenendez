@@ -32,9 +32,21 @@
     user-select:none;
 }
 
-.productoItem>h4
+.navlink
 {
-    color: #0e0005;
+    text-align: center;
+    text-decoration: none!important;
+}
+
+.navlinkCart
+{
+    color: #1c000a;
+}
+
+.productoItem>a>h4:hover 
+{
+    transition: color ease-in-out .7s;
+    color: #70002a;
 }
 
 
