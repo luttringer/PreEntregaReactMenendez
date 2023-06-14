@@ -30,7 +30,11 @@ export const CarritoProvider = ({ children }) => {
   const eliminarProducto = (productoId) => 
   {
     const nuevoCarrito = carrito.filter(item => item.id !== productoId);
-    document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) - 1;
+    if(parseInt(document.querySelector("#counterCarrito").innerHTML>0))
+    {
+      document.querySelector("#counterCarrito").innerHTML=parseInt(document.querySelector("#counterCarrito").innerHTML) - 1;
+    }
+    
     toast("Producto eliminado correctamente.");
     setCarrito(nuevoCarrito);
   };

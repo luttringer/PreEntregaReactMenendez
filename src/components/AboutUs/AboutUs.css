@@ -1,0 +1,26 @@
+.contChris
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.contChris>img 
+{
+    width: 35vw;
+    height: 35vw;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.contChris>h2, .contChris>p 
+{
+    font-family: monospace;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    text-align: center;
+}
