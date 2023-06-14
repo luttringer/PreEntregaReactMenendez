@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from "../../services/firebase_con";
+import {Link} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = () => 
 {
@@ -24,10 +27,11 @@ const ItemDetail = () =>
         productos.push(doc.data());
         console.table(productos);
       });
+      toast("Producto cargado satisfactoriamente");
       return [...productos];
     } catch (error) 
     {
-      console.error('Error al obtener los documentos:', error);
+      toast("Error al obtener item. Codigo de error: ", error);
     }
   }
   
@@ -59,11 +63,15 @@ const ItemDetail = () =>
             <p><strong>descripción producto:</strong> {producto[0].descripcion}</p>
             <p><strong>stock actual:</strong> {producto[0].stock}</p>
             <p><strong>precio:</strong> {producto[0].precio}</p>
-            <button>regresar a MARKET</button>
-            <button>agregar a carrito</button>
+
+            <Link className="navlink" to={`/market/:completos`}>
+              <button>regresar a MARKET</button>
+            </Link>
+            
           </div>
         </section>
       )}
+      <ToastContainer />
   </>
   );
 };
